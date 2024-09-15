@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: Employee-service
+  datasource:
+    password: 061201
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/EmployeeDB
+    driver-class-name: org.postgresql.Driver
+  profiles:
+    active: local
+
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc.batch_size: 30
+        order_inserts: true
+        jdbc.time_zone: UTC
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        types.print.banner: false
+        format_sql: true
+server:
+  port: ${SERVER_PORT:8082}
+  servlet:
+    contextPath: ${CONTEXT_PATH:/api}
